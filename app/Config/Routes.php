@@ -35,10 +35,40 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Login::index');
 $routes->get('/Login', 'Login::index');
-$routes->get('/Data', 'Data::index');
-$routes->get('/Laporan', 'Laporan::index');
+
+$routes->group('kamar', function ($routes) {
+    $routes->get('', 'Admin\Kamar::index');
+    $routes->get('add', 'Admin\Kamar::tambah');
+    $routes->get('del', 'Admin\Kamar::del');
+    $routes->get('update', 'Admin\Kamar::update');
+});
+$routes->group('customer', function ($routes) {
+    $routes->get('', 'Admin\Customer::index');
+    $routes->get('add', 'Admin\Customer::tambah');
+    $routes->get('del', 'Admin\Customer::del');
+    $routes->get('update', 'Admin\Costumer::update');
+});
+$routes->group('reservasi', function ($routes) {
+    $routes->get('', 'Admin\Reservasi::index');
+    $routes->get('add', 'Admin\Reservasi::tambah');
+    $routes->get('del', 'Admin\Reservasi::del');
+    $routes->get('update', 'Admin\Reservasi::update');
+});
+$routes->group('booking', function ($routes) {
+    $routes->get('', 'Customer\Reservasi::index');
+    $routes->get('add', 'Customer\Reservasi::tambah');
+    $routes->get('del', 'Customer\Reservasi::del');
+    $routes->get('update', 'Customer\Reservasi::update');
+});
+$routes->group('daftar', function ($routes) {
+    $routes->get('', 'Customer\Daftar::index');
+    $routes->get('add', 'Customer\Daftar::tambah');
+    $routes->get('del', 'Customer\Daftar::del');
+    $routes->get('update', 'Customer\Daftar::update');
+});
+
 
 /*
  * --------------------------------------------------------------------
