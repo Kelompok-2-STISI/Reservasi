@@ -36,39 +36,28 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/Sign-In', 'Register::index');
-$routes->get('/Login', 'Home::index');
+$routes->get('/Kamar', 'Admin/Kamar::index');
+$routes->get('/Reservasi', 'Admin/Reservasi::index');
+$routes->get('/Users', 'Admin/Users::index');
 
 
-$routes->group('kamar', function ($routes) {
+$routes->group('Kamar', function ($routes) {
     $routes->get('', 'Admin\Kamar::index');
     $routes->get('add', 'Admin\Kamar::tambah');
     $routes->get('del', 'Admin\Kamar::del');
     $routes->get('update', 'Admin\Kamar::update');
 });
-$routes->group('customer', function ($routes) {
-    $routes->get('', 'Admin\Customer::index');
-    $routes->get('add', 'Admin\Customer::tambah');
-    $routes->get('del', 'Admin\Customer::del');
-    $routes->get('update', 'Admin\Costumer::update');
+$routes->group('Users', function ($routes) {
+    $routes->get('', 'Admin\Users::index');
+    $routes->get('add', 'Admin\Users::tambah');
+    $routes->get('del', 'Admin\Users::del');
+    $routes->get('update', 'Admin\Users::update');
 });
-$routes->group('reservasi', function ($routes) {
+$routes->group('Reservasi', function ($routes) {
     $routes->get('', 'Admin\Reservasi::index');
     $routes->get('add', 'Admin\Reservasi::tambah');
     $routes->get('del', 'Admin\Reservasi::del');
     $routes->get('update', 'Admin\Reservasi::update');
-});
-$routes->group('booking', function ($routes) {
-    $routes->get('', 'Customer\Reservasi::index');
-    $routes->get('add', 'Customer\Reservasi::tambah');
-    $routes->get('del', 'Customer\Reservasi::del');
-    $routes->get('update', 'Customer\Reservasi::update');
-});
-$routes->group('daftar', function ($routes) {
-    $routes->get('', 'Customer\Daftar::index');
-    $routes->get('add', 'Customer\Daftar::tambah');
-    $routes->get('del', 'Customer\Daftar::del');
-    $routes->get('update', 'Customer\Daftar::update');
 });
 
 

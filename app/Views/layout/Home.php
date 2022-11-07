@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Numbay | Customer | Home</title>
+  <title>Numbay | Home</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -76,7 +76,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="http://localhost:8080/" class="brand-link">
+      <a href="<?php base_url() ?>" class="brand-link">
         <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Numbay</span>
       </a>
@@ -98,19 +98,26 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="http://localhost:8080/Data" class="nav-link">
+              <a href="<?php base_url() ?>/Users" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>
-                  Daftar Registrasi
+                  Users
                 </p>
               </a>
             </li>
-
             <li class="nav-item">
-              <a href="http://localhost:8080/Laporan" class="nav-link">
+              <a href="<?php base_url() ?>/Kamar" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
-                  Laporan Registrasi
+                  Kamar
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php base_url() ?>/Reservasi" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Reservasi
                 </p>
               </a>
             </li>
