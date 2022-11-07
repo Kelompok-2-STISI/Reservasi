@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Numbay | Login</title>
+    <title>Numbay | Sign-In</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -34,13 +34,17 @@
 
         <div class="card">
             <div class="card-header">
-                <h1>Login</h1>
+                <h1>Sign-In</h1>
             </div>
             <div class="card-body">
                 <form>
                     <div class="mb-3">
+                        <label for="exampleInputName" class="form-label">Nama Lengkap</label>
+                        <input type="name" class="form-control" id="exampleInpuName" aria-describedby="nameHelp">
+                    </div>
+                    <div class="mb-3">
                         <label for="exampleInputUsername" class="form-label">Username</label>
-                        <input type="name" class="form-control" id="exampleInpuUsername" aria-describedby="usernameHelp">
+                        <input type="username" class="form-control" id="exampleInpuUsername" aria-describedby="usernameHelp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -49,9 +53,9 @@
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1">
-                        <a href="<?php base_url() ?>/Sign-In" class="link-primary">Sign-In?</a>
+                        <a href="<?php base_url() ?>/Login" class="link-primary">Login?</a>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
