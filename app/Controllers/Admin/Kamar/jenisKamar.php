@@ -1,22 +1,24 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\Admin\Kamar;
 
 use App\Controllers\BaseController;
 
-class Kamar extends BaseController
+class jenisKamar extends BaseController
 {
     public function index()
     {
-        return view('kamar');
+        return view('jenis/index');
     }
     public function tambah()
     {
+        return view('jenis/tambah');
     }
     public function del()
     {
     }
     public function update()
     {
+        return view('jenis/edit');
     }
 }

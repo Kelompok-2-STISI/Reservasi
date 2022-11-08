@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers\Admin\Kamar;
 
 use App\Controllers\BaseController;
 
-class Reservasi extends BaseController
+class setKamar extends BaseController
 {
     public function index()
     {
-        return view('reservasi/index');
+        return view('kamar/index');
     }
     public function tambah()
     {

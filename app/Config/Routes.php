@@ -37,14 +37,28 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->group('Kamar', function ($routes) {
-    $routes->get('', 'Admin\Kamar::index');
+$routes->group('kamar', function ($routes) {
+    $routes->get('', 'Admin\Kamar\setKamar::index');
+    $routes->get('tambah', 'Admin\Kamar\setKamar::tambah');
+    $routes->get('edit', 'Admin\Kamar\setKamar::update');
 });
-$routes->group('Reservasi', function ($routes) {
+$routes->group('jenis', function ($routes) {
+    $routes->get('', 'Admin\Kamar\jenisKamar::index');
+    $routes->get('tambah', 'Admin\Kamar\jenisKamar::tambah');
+    $routes->get('edit', 'Admin\Kamar\jenisKamar::update');
+});
+$routes->group('tarif', function ($routes) {
+    $routes->get('', 'Admin\Kamar\tarifKamar::index');
+    $routes->get('tambah', 'Admin\Kamar\tarifKamar::tambah');
+    $routes->get('edit', 'Admin\Kamar\tarifKamar::update');
+});
+$routes->group('reservasi', function ($routes) {
     $routes->get('', 'Admin\Reservasi::index');
 });
-$routes->group('Users', function ($routes) {
+$routes->group('users', function ($routes) {
     $routes->get('', 'Admin\Users::index');
+    $routes->get('tambah', 'Admin\Users::tambah');
+    $routes->get('edit', 'Admin\Users::edit');
 });
 
 /*
