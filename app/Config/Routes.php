@@ -36,30 +36,16 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/Kamar', 'Admin/Kamar::index');
-$routes->get('/Reservasi', 'Admin/Reservasi::index');
-$routes->get('/Users', 'Admin/Users::index');
-
 
 $routes->group('Kamar', function ($routes) {
     $routes->get('', 'Admin\Kamar::index');
-    $routes->get('add', 'Admin\Kamar::tambah');
-    $routes->get('del', 'Admin\Kamar::del');
-    $routes->get('update', 'Admin\Kamar::update');
-});
-$routes->group('Users', function ($routes) {
-    $routes->get('', 'Admin\Users::index');
-    $routes->get('add', 'Admin\Users::tambah');
-    $routes->get('del', 'Admin\Users::del');
-    $routes->get('update', 'Admin\Users::update');
 });
 $routes->group('Reservasi', function ($routes) {
     $routes->get('', 'Admin\Reservasi::index');
-    $routes->get('add', 'Admin\Reservasi::tambah');
-    $routes->get('del', 'Admin\Reservasi::del');
-    $routes->get('update', 'Admin\Reservasi::update');
 });
-
+$routes->group('Users', function ($routes) {
+    $routes->get('', 'Admin\Users::index');
+});
 
 /*
  * --------------------------------------------------------------------
