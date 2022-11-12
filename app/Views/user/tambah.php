@@ -58,34 +58,35 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="card">
+<div class="card card-primary">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <h3>Daftar User</h3>
-            <a href="<?= base_url('users/tambah') ?>" class="btn btn-info">Tambah</a>
+            <h3>Tambah User</h3>
         </div>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Username</th>
-                        <th>Nama Lengkap</th>
-                        <th>NIK</th>
-                        <th>Kewarganegaraan</th>
-                        <th>E-Mail</th>
-                        <th>No.Hp</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-
-                    </tr>
-                </tbody>
-            </table>
+        <div class="form-group">
+            <label for="exampleInputNama">Nama Lengkap</label>
+            <input type="name" class="form-control" id="exampleInputNama" placeholder="Nama Lengkap">
         </div>
+        <div class="form-group">
+            <label for="exampleInputUsername">Username</label>
+            <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputNoHp">No.Hp</label>
+            <input type="tel" class="form-control" id="exampleInputNoHp" placeholder="No.Hp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
     <?= $this->endSection() ?>

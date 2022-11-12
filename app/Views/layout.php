@@ -26,6 +26,11 @@
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/summernote/summernote-bs4.min.css">
+    <style>
+        .selected {
+            background: rgb(13, 110, 253);
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -74,51 +79,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="<?php base_url() ?>/users" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Users
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Kamar
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview" style="display: none;">
-                                <li class="nav-item">
-                                    <a href="<?php base_url() ?>/kamar" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Set Kamar</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?php base_url() ?>/jenis" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Jenis Kamar</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?php base_url() ?>/tarif" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tarif Kamar</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?php base_url() ?>/reservasi" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Reservasi
-                                </p>
-                            </a>
-                        </li>
+                        <?= $this->renderSection('sidebar') ?>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -136,9 +97,6 @@
                             <?= $this->renderSection('contentHead') ?>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="/"> Home </a>/<a href="#"> Kamar </a></li>
-                            </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->

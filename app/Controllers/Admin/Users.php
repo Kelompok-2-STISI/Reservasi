@@ -10,4 +10,8 @@ class Users extends BaseController
     {
         return view('user/index');
     }
+    public function tambah()
+    {
+        return view('user/tambah');
+    }
 }
