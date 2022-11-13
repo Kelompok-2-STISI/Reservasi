@@ -77,6 +77,7 @@
                         <th>Kewarganegaraan</th>
                         <th>E-Mail</th>
                         <th>No.Hp</th>
+                        <th>Tipe</th>
                         <th>Action</th>
                     </tr>
                 </thead>

@@ -53,7 +53,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('contentHead') ?>
-<h1 class="m-0">Jenis Kamar</h1>
+<h1 class="m-0">Menu Kamar</h1>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -61,25 +61,24 @@
     <div class="card-header">
         <div class="d-flex justify-content-between">
             <h3>Daftar Jenis Kamar</h3>
-            <a href="<?= base_url('kamar/tambah') ?>" class="btn btn-info">Tambah</a>
+            <a href="<?= base_url('jenis/tambah') ?>" class="btn btn-info">Tambah</a>
         </div>
 
     </div>
-    <div class="body">
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nomor Kamar</th>
-                        <th>Katerangan</th>
+                        <th>jenis Kamar</th>
+                        <th>Tarif Kamar</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>001</td>
-                        <td>Testing Kamar</td>
+
                     </tr>
                 </tbody>
             </table>

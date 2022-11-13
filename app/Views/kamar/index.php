@@ -65,21 +65,23 @@
         </div>
 
     </div>
-    <div class="body">
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nomor Kamar</th>
-                        <th>Katerangan</th>
+                        <th>Nama Kamar</th>
+                        <th>No. Kamar</th>
+                        <th>Jenis Kamar</th>
+                        <th>Tarif Kamar</th>
+                        <th>Status Kamar</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>001</td>
-                        <td>Testing Kamar</td>
+
                     </tr>
                 </tbody>
             </table>

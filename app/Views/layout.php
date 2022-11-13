@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="<?= base_url() ?>/plugins/summernote/summernote-bs4.min.css">
+
     <style>
         .selected {
             background: rgb(13, 110, 253);

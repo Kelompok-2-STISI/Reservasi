@@ -12,6 +12,7 @@ class setKamar extends BaseController
     }
     public function tambah()
     {
+        return view('Kamar/tambah');
     }
     public function del()
     {
