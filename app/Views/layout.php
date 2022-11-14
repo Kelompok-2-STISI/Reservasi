@@ -31,6 +31,20 @@
         .selected {
             background: rgb(13, 110, 253);
         }
+
+        .actionIcon>svg {
+            height: 20px;
+            width: auto;
+        }
+
+        .edit {
+            fill: lawngreen;
+
+        }
+
+        .delete {
+            fill: red;
+        }
     </style>
 </head>
 
@@ -80,7 +94,46 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <?= $this->renderSection('sidebar') ?>
+                        <li class="nav-item <?= $this->renderSection('sideuser') ?>">
+                            <a href="/users" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Users
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item <?= $this->renderSection('menuopen') ?>">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Kamar
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item <?= $this->renderSection('sidesetkamar') ?>">
+                                    <a href="/kamar" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Set Kamar</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item <?= $this->renderSection('sidejeniskamar') ?>">
+                                    <a href="/jenis" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Jenis Kamar</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item <?= $this->renderSection('sidereservasi') ?>">
+                            <a href="/reservasi" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Reservasi
+                                </p>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

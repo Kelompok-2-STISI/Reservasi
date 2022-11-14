@@ -34,7 +34,7 @@
 
 #--------------------------------------------------------------------
 
-# app.baseURL = ''
+app.baseURL = 'http://localhost:8080/'
 
 # If you have trouble with `.`, you could also use `_`.
 
@@ -64,15 +64,15 @@
 
 #--------------------------------------------------------------------
 
-# database.default.hostname = localhost
+# database.default.hostname = 'localhost'
 
-# database.default.database = ci4
+# database.default.database = 'reservasi'
 
-# database.default.username = root
+# database.default.username = 'pma'
 
-# database.default.password = root
+# database.default.password = ''
 
-# database.default.DBDriver = MySQLi
+# database.default.DBDriver = 'MySQLi'
 
 # database.default.DBPrefix =
 

@@ -1,59 +1,49 @@
+<?php
+
+use App\Models\user;
+?>
 <?= $this->extend('layout') ?>
 
 <?= $this->section('head') ?>
 <title>Numbay | Reservasi</title>
 <?= $this->endSection() ?>
 
-<?= $this->section('sidebar') ?>
-<li class="nav-item">
-    <a href="/users" class="nav-link">
-        <i class="nav-icon fas fa-table"></i>
-        <p>
-            Users
-        </p>
-    </a>
-</li>
-<li class="nav-item">
-    <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-copy"></i>
-        <p>
-            Kamar
-            <i class="fas fa-angle-left right"></i>
-        </p>
-    </a>
-    <ul class="nav nav-treeview" style="display: none;">
-        <li class="nav-item">
-            <a href="/kamar" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Set Kamar</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="/jenis" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Jenis Kamar</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="/tarif" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Tarif Kamar</p>
-            </a>
-        </li>
-    </ul>
-</li>
-<li class="nav-item selected rounded">
-    <a href="/reservasi" class="nav-link">
-        <i class="nav-icon fas fa-copy"></i>
-        <p>
-            Reservasi
-        </p>
-    </a>
-</li>
+<?= $this->section('sidereservasi') ?>
+selected rounded
 <?= $this->endSection() ?>
 
 <?= $this->section('contentHead') ?>
 <h1 class="m-0">Reservasi</h1>
+<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h3>Kamar</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No. Kamar</th>
+                        <th>Nama Kamar</th>
+                        <th>Jenis Kamar</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
