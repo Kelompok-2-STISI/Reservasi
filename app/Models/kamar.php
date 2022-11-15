@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class user extends Model
+class kamar extends Model
 {
-    protected $table      = 'user';
+    protected $table      = 'kamar';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
@@ -14,9 +14,9 @@ class user extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nama', 'username', 'nik', 'kewarganegaraan', 'email', 'no_hp', 'tipe',];
+    protected $allowedFields = ['nama_kamar', 'nomor_kamar', 'id_jenis_kamar', 'status'];
 
-    public function getUser()
+    public function getKamar()
     {
         return $this->findAll();
     }

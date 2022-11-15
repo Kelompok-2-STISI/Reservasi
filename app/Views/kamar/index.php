@@ -40,9 +40,18 @@ selected rounded
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-
-                    </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($kamar as $k) : ?>
+                        <tr>
+                            <td><?= $i++; ?></td>
+                            <td><?= $k['nama_kamar']; ?></td>
+                            <td><?= $k['nomor_kamar']; ?></td>
+                            <td><?= $k['jenis_kamar']; ?></td>
+                            <td><?= $k['tarif']; ?></td>
+                            <td><?= $k['status']; ?></td>
+                            <td></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

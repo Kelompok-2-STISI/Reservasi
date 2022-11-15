@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class user extends Model
+class booking extends Model
 {
-    protected $table      = 'user';
+    protected $table      = 'booking';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
@@ -14,9 +14,9 @@ class user extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nama', 'username', 'nik', 'kewarganegaraan', 'email', 'no_hp', 'tipe',];
+    protected $allowedFields = ['id_user', 'id_kamar', 'check-in', 'check-out', 'status'];
 
-    public function getUser()
+    public function getBook()
     {
         return $this->findAll();
     }

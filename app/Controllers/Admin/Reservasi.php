@@ -3,6 +3,8 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\booking;
+use App\Models\user;
 
 class Reservasi extends BaseController
 {

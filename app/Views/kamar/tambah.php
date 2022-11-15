@@ -23,29 +23,38 @@ selected rounded
             <h3>Tambah Kamar</h3>
         </div>
     </div>
-    <div class="card-body">
-        <div class="form-group">
-            <label for="InputNamaKamar">Nama Kamar</label>
-            <input type="text" class="form-control" id="InputNamaKamar" placeholder="Nama Kamar">
-        </div>
-        <div class="form-group">
-            <label for="InputNoKamar">No. Kamar</label>
-            <input type="num" class="form-control" id="InputNoKamar" placeholder="No. Kamar">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputUserType">Jenis Kamar</label>
-            <div class="icheck-primary">
-                <input type="radio" id="primary1" name="primary" value="">
-                <label for="primary1">Premium</label>
+    <form action="<?= base_url('kamar/save') ?>" method="post">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="InputNamaKamar">Nama Kamar</label>
+                <input type="text" name="nama_kamar" class="form-control" id="InputNamaKamar" placeholder="Nama Kamar">
             </div>
-            <div class="icheck-primary">
-                <input type="radio" id="primary2" name="primary" value="">
-                <label for="primary2">Reguler</label>
+            <div class="form-group">
+                <label for="InputNoKamar">No. Kamar</label>
+                <input type="num" name="nomor_kamar" class="form-control" id="InputNoKamar" placeholder="No. Kamar">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputUserType">Jenis Kamar</label>
+                <select name="id_jenis_kamar" class="form-control">
+                    <option value="">---Pilih Jenis Kamar---</option>
+                    <?php foreach ($jenisKamar as $key => $jenis) : ?>
+                        <option value="<?= $jenis['id'] ?>"><?= $jenis['jenis_kamar'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputUserType">Status</label>
+                <select name="status" class="form-control">
+                    <option value="">---Pilih Status Kamar---</option>
+                    <option value="aktif">Aktif</option>
+                    <option value="none">Tidak Aktif</option>
+                </select>
             </div>
         </div>
-    </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
 </div>
-<div class="card-footer">
-    <button type="submit" class="btn btn-primary">Submit</button>
-</div>
+
 <?= $this->endSection() ?>
