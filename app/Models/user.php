@@ -14,7 +14,7 @@ class user extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nama', 'username', 'nik', 'id_negara', 'email', 'no_hp', 'tipe',];
+    protected $allowedFields = ['nama', 'username', 'password', 'nik', 'id_negara', 'email', 'no_hp'];
 
     public function getUser()
     {

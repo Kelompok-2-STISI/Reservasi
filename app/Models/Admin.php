@@ -39,4 +39,9 @@ class Admin extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAdmin()
+    {
+        return $this->findAll();
+    }
 }

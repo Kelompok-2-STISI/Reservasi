@@ -4,19 +4,28 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\user;
+use App\Models\Admin;
+use App\Models\Negara;
 
 class Users extends BaseController
 {
     protected $userModel;
+    protected $adminModel;
     protected $negaraModel;
     public function __construct()
     {
         $this->userModel = new \App\Models\user();
+        $this->adminModel = new \App\Models\Admin();
+        $this->negaraModel = new \App\Models\Negara();
     }
     public function index()
     {
         $data = [
-            'user' => $this->userModel->getUser()
+            'admin' => $this->adminModel->getAdmin(),
+            'customer' => $this->userModel->select('customer.*, negara.country_name')
+                ->join('negara', 'customer.id_negara=negara.id_country', 'LEFT')
+                ->findAll()
+
         ];
         return view('user/index', $data);
     }
