@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class user extends Model
 {
-    protected $table      = 'user';
+    protected $table      = 'customer';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
@@ -14,7 +14,7 @@ class user extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['nama', 'username', 'nik', 'kewarganegaraan', 'email', 'no_hp', 'tipe',];
+    protected $allowedFields = ['nama', 'username', 'nik', 'id_negara', 'email', 'no_hp', 'tipe',];
 
     public function getUser()
     {
