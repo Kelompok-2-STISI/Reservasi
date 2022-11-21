@@ -17,7 +17,7 @@ selected rounded
     <div class="card-header">
         <div class="d-flex justify-content-between">
             <h3>Daftar Admin</h3>
-            <a href="<?= base_url('admin/tambah') ?>" class="btn btn-info">Tambah</a>
+            <a href="<?= base_url('users/tambah-admin') ?>" class="btn btn-info">Tambah</a>
         </div>
     </div>
     <div class="card-body">
@@ -65,7 +65,7 @@ selected rounded
     <div class="card-header">
         <div class="d-flex justify-content-between">
             <h3>Daftar Customer</h3>
-            <a href="<?= base_url('users/tambah') ?>" class="btn btn-info">Tambah</a>
+            <a href="<?= base_url('users/tambah-customer') ?>" class="btn btn-info">Tambah</a>
         </div>
     </div>
     <div class="card-body">
