@@ -33,6 +33,8 @@ selected rounded
                         <th>No</th>
                         <th>jenis Kamar</th>
                         <th>Tarif Kamar</th>
+                        <th>Foto</th>
+                        <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -41,8 +43,10 @@ selected rounded
                     <?php foreach ($jenis_kamar as $j) : ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= $j['jenis']; ?></td>
+                            <td><?= $j['jenis_kamar']; ?></td>
                             <td>Rp. <?= $j['tarif']; ?>.00/malam</td>
+                            <td><?= $j['photo']; ?></td>
+                            <td><?= $j['desc']; ?></td>
                             <td>
                                 <a href="<?= base_url('user/edit') ?>" class="actionIcon edit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                                         <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->

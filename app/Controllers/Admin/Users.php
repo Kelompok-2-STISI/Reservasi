@@ -23,7 +23,9 @@ class Users extends BaseController
         $data = [
             'admin' => $this->adminModel->getAdmin(),
             'customer' => $this->userModel->select('customer.*, negara.country_name')
-                ->join('negara', 'customer.id_negara=negara.id_country', 'LEFT')
+                ->join('negara', 'customer.id_negara=negara.id_country
+                
+                ', 'LEFT')
                 ->findAll()
 
         ];
@@ -31,8 +33,10 @@ class Users extends BaseController
     }
     public function tambah()
     {
-
-        return view('user/tambah');
+        $data = [
+            'negara' => $this->negaraModel->getNegara()
+        ];
+        return view('user/tambah', $data);
     }
 
     public function save()

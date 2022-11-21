@@ -39,4 +39,9 @@ class Negara extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getNegara()
+    {
+        return $this->findAll();
+    }
 }

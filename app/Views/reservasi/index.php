@@ -1,7 +1,3 @@
-<?php
-
-use App\Models\user;
-?>
 <?= $this->extend('layout') ?>
 
 <?= $this->section('head') ?>
@@ -28,17 +24,45 @@ selected rounded
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>No. Kamar</th>
+                        <th>No</th>
                         <th>Nama Kamar</th>
+                        <th>No. Kamar</th>
                         <th>Jenis Kamar</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Tarif Kamar</th>
+                        <th>Status Kamar</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($kamar as $k) : ?>
+                        <tr>
+                            <td><?= $i++; ?></td>
+                            <td><?= $k['nama_kamar']; ?></td>
+                            <td><?= $k['nomor_kamar']; ?></td>
+                            <td>
+                                <a data-toggle="modal" data-target="#exampleModal<?= $i; ?>" class="pop"><?= $k['jenis_kamar']; ?></a>
+                                <div class="modal fade" id="exampleModal<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Kamar <?= $k['jenis_kamar']; ?></h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><?= $k['tarif']; ?></td>
+                            <td><?= $k['status']; ?></td>
+                            <td></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

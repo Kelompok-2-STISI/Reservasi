@@ -40,7 +40,12 @@ selected rounded
             </div>
             <div class="form-group">
                 <label for="negara" class="form-label">Kewarganegaraan</label>
-                <input type="text" name="negara" class="form-control" id="negara" placeholder="Kewarganegaraan">
+                <select class="custom-select rounded-0" id="exampleSelectRounded0">
+                    <option selected>Pilih Negara</option>
+                    <?php foreach ($negara as $n) : ?>
+                        <option data-tokens="<?= $n['country_name']; ?>" value="<?= $n['id_country']; ?>"><?= $n['country_name']; ?></option>
+                    <?php endforeach ?>
+                </select>
             </div>
             <div class="form-group">
                 <label for="email">Email address</label>
