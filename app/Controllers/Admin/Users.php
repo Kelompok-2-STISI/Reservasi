@@ -26,14 +26,11 @@ class Users extends BaseController
         $data = [
             'admin' => $this->adminModel->getAdmin(),
             'customer' => $this->userModel->select('customer.*, negara.country_name')
-                ->join('negara', 'customer.id_negara=negara.id_country
-                
-                ', 'LEFT')
-                ->findAll()
-
+                ->join('negara', 'customer.id_negara=negara.id_country', 'LEFT')->findAll()
         ];
         return view('user/index', $data);
     }
+    // -------------------------------------------------------------------------------------------------
     public function tambahCustomer()
     {
         $data = [
@@ -41,6 +38,27 @@ class Users extends BaseController
         ];
         return view('user/tambahCustomer', $data);
     }
+    public function saveCustomer()
+    {
+        $this->userModel->save([
+            'nama' => $this->request->getPost('nama'),
+            'username' => $this->request->getPost('uname'),
+            'nik' => $this->request->getPost('nik'),
+            'id_negara' => $this->request->getPost('negara'),
+            'email' => $this->request->getPost('email'),
+            'no_hp' => $this->request->getPost('noHp'),
+            'password' => $this->request->getPost('password'),
+        ]);
+
+        return redirect()->to('/users');
+    }
+    public function hapusCustomer($id)
+    {
+        $this->userModel->delete($id);
+        return redirect()->to('/users');
+    }
+
+    // ----------------------------------------------------------------------------------
 
     public function tambahAdmin()
     {
@@ -59,18 +77,30 @@ class Users extends BaseController
 
         return redirect()->to('/users');
     }
-    public function saveCustomer()
+
+    public function hapusAdmin($id)
     {
-        $this->userModel->save([
+        $this->adminModel->delete($id);
+        return redirect()->to('/users');
+    }
+
+    public function editAdmin($id)
+    {
+        $data = [
+            'admin' => $this->adminModel->find($id)
+        ];
+        return view('user/editAdmin', $data);
+    }
+    public function updateAdmin($id)
+    {
+        $this->adminModel->save([
+            'id' => $id,
             'nama' => $this->request->getPost('nama'),
             'username' => $this->request->getPost('uname'),
-            'nik' => $this->request->getPost('nik'),
-            'id_negara' => $this->request->getPost('negara'),
             'email' => $this->request->getPost('email'),
             'no_hp' => $this->request->getPost('noHp'),
             'password' => $this->request->getPost('password'),
         ]);
-
         return redirect()->to('/users');
     }
 }

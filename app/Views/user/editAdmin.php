@@ -16,31 +16,31 @@ selected rounded
 <div class="card card-primary">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <h3>Tambah Admin</h3>
+            <h3>Ubah Admin</h3>
         </div>
     </div>
-    <form action="<?= base_url('users/save-admin') ?>" method="post">
+    <form action="<?= base_url() ?>/users/update-admin/<?= $admin['id']; ?>" method="post">
         <?= csrf_field(); ?>
         <div class="card-body">
             <div class="form-group">
                 <label for="nama">Nama Lengkap</label>
-                <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap" autofocus>
+                <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap" autofocus value="<?= $admin['nama']; ?>">
             </div>
             <div class="form-group">
                 <label for="uname">Username</label>
-                <input type="text" name="uname" class="form-control" id="uname" placeholder="Username">
+                <input type="text" name="uname" class="form-control" id="uname" placeholder="Username" value="<?= $admin['username']; ?>">
             </div>
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="E-Mail">
+                <input type="email" name="email" class="form-control" id="email" placeholder="E-Mail" value="<?= $admin['email']; ?>">
             </div>
             <div class="form-group">
                 <label for="noHp">No.Hp</label>
-                <input type="tel" name="noHp" class="form-control" id="noHp" placeholder="No.Hp">
+                <input type="tel" name="noHp" class="form-control" id="noHp" placeholder="No.Hp" value="<?= $admin['no_hp']; ?>">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" value="<?= $admin['password']; ?>">
             </div>
         </div>
         <div class="card-footer">

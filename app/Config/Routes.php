@@ -59,11 +59,16 @@ $routes->group('reservasi', function ($routes) {
 });
 $routes->group('users', function ($routes) {
     $routes->get('', 'Admin\Users::index');
+
     $routes->get('tambah-customer', 'Admin\Users::tambahCustomer');
-    $routes->get('tambah-admin', 'Admin\Users::tambahAdmin');
-    $routes->get('edit', 'Admin\Users::edit');
     $routes->post('save-customer', 'Admin\Users::saveCustomer');
+    $routes->get('hapus-customer/(:num)', 'Admin\Users::hapusCustomer/$1');
+
+    $routes->get('tambah-admin', 'Admin\Users::tambahAdmin');
     $routes->post('save-admin', 'Admin\Users::saveAdmin');
+    $routes->post('update-admin/(:segment)', 'Admin\Users::updateAdmin/$1');
+    $routes->get('hapus-admin/(:num)', 'Admin\Users::hapusAdmin/$1');
+    $routes->get('edit-admin/(:segment)', 'Admin\Users::editAdmin/$1');
 });
 
 /*
