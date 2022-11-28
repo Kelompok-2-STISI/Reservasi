@@ -45,6 +45,10 @@
         .delete {
             fill: red;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 

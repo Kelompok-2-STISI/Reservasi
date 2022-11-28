@@ -5,11 +5,13 @@ namespace App\Controllers\Admin\Kamar;
 use App\Controllers\BaseController;
 use App\Models\kamar;
 use App\Models\jenis;
+use App\Models\PhotoModel;
 
 class setKamar extends BaseController
 {
     protected $kamarModel;
     protected $jenisModel;
+    protected $photoModel;
 
     public function __construct()
     {
@@ -21,7 +23,9 @@ class setKamar extends BaseController
         $data = [
             'kamar' => $this->kamarModel->select('kamar.*, jenis_kamar.jenis_kamar, jenis_kamar.tarif')
                 ->join('jenis_kamar', 'kamar.id_jenis_kamar=jenis_kamar.id', 'LEFT')
-                ->findAll()
+                ->findAll(),
+            'foto' => $this->photoModel->select('photo.*, photo.id, photo.foto')
+                ->join('jenis_kamar', 'photo.id_jenis_kamar=jenis_kamar.id', 'LEFT')
         ];
         return view('kamar/index', $data);
     }

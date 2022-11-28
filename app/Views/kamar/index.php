@@ -46,7 +46,24 @@ selected rounded
                             <td><?= $i++; ?></td>
                             <td><?= $k['nama_kamar']; ?></td>
                             <td><?= $k['nomor_kamar']; ?></td>
-                            <td><?= $k['jenis_kamar']; ?></td>
+                            <td>
+                                <a data-toggle="modal" data-target="#exampleModal<?= $i; ?>" class="pop"><?= $k['jenis_kamar']; ?></a>
+                                <div class="modal fade" id="exampleModal<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Kamar <?= $k['jenis_kamar']; ?></h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <?= $k['foto']; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
                             <td><?= $k['tarif']; ?></td>
                             <td><?= $k['status']; ?></td>
                             <td></td>
