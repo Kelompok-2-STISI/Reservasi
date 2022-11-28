@@ -57,7 +57,28 @@ class Users extends BaseController
         $this->userModel->delete($id);
         return redirect()->to('/users');
     }
-
+    public function editCustomer($id)
+    {
+        $data = [
+            'customer' => $this->userModel->find($id),
+            'negara' => $this->negaraModel->getNegara()
+        ];
+        return view('user/editCustomer', $data);
+    }
+    public function updateCustomer($id)
+    {
+        $this->userModel->save([
+            'id' => $id,
+            'nama' => $this->request->getPost('nama'),
+            'username' => $this->request->getPost('uname'),
+            'nik' => $this->request->getPost('nik'),
+            'id_negara' => $this->request->getPost('negara'),
+            'email' => $this->request->getPost('email'),
+            'no_hp' => $this->request->getPost('noHp'),
+            'password' => $this->request->getPost('password'),
+        ]);
+        return redirect()->to('/users');
+    }
     // ----------------------------------------------------------------------------------
 
     public function tambahAdmin()

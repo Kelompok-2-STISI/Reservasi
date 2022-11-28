@@ -63,12 +63,14 @@ $routes->group('users', function ($routes) {
     $routes->get('tambah-customer', 'Admin\Users::tambahCustomer');
     $routes->post('save-customer', 'Admin\Users::saveCustomer');
     $routes->get('hapus-customer/(:num)', 'Admin\Users::hapusCustomer/$1');
+    $routes->get('edit-customer/(:segment)', 'Admin\Users::editCustomer/$1');
+    $routes->post('update-customer/(:segment)', 'Admin\Users::updateCustomer/$1');
 
     $routes->get('tambah-admin', 'Admin\Users::tambahAdmin');
     $routes->post('save-admin', 'Admin\Users::saveAdmin');
-    $routes->post('update-admin/(:segment)', 'Admin\Users::updateAdmin/$1');
     $routes->get('hapus-admin/(:num)', 'Admin\Users::hapusAdmin/$1');
     $routes->get('edit-admin/(:segment)', 'Admin\Users::editAdmin/$1');
+    $routes->post('update-admin/(:segment)', 'Admin\Users::updateAdmin/$1');
 });
 
 /*
