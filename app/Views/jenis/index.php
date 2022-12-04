@@ -45,7 +45,7 @@ selected rounded
                             <td><?= $i++; ?></td>
                             <td><?= $j['jenis_kamar']; ?></td>
                             <td>Rp. <?= $j['tarif']; ?>.00/malam</td>
-                            <td><?= $j['photo']; ?></td>
+                            <td width="30%"><img src="<?= base_url() . "/" . $j['photo'][0]->foto . ".jpg"; ?>" alt="" width="100%"></td>
                             <td><?= $j['desc']; ?></td>
                             <td>
                                 <a href="<?= base_url('user/edit') ?>" class="actionIcon edit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">

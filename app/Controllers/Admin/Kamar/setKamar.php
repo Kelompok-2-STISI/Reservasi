@@ -17,16 +17,18 @@ class setKamar extends BaseController
     {
         $this->kamarModel = new \App\Models\kamar();
         $this->jenisModel = new \App\Models\jenis();
+        $this->photoModel = new \App\Models\PhotoModel();
     }
     public function index()
     {
         $data = [
-            'kamar' => $this->kamarModel->select('kamar.*, jenis_kamar.jenis_kamar, jenis_kamar.tarif')
+            'kamar' => $this->kamarModel->select('kamar.*, jenis_kamar.jenis_kamar, jenis_kamar.tarif, jenis_kamar.desc, jenis_kamar.id AS id_jenis_kamar')
                 ->join('jenis_kamar', 'kamar.id_jenis_kamar=jenis_kamar.id', 'LEFT')
-                ->findAll(),
-            'foto' => $this->photoModel->select('photo.*, photo.id, photo.foto')
-                ->join('jenis_kamar', 'photo.id_jenis_kamar=jenis_kamar.id', 'LEFT')
+                ->findAll()
         ];
+        foreach ($data['kamar'] as $key => $kamar) {
+            $data['kamar'][$key]['photo'] = $this->photoModel->asObject()->where('id_jenis_kamar', $kamar['id_jenis_kamar'])->findAll();
+        }
         return view('kamar/index', $data);
     }
     public function tambah()

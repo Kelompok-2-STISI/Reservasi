@@ -18,7 +18,7 @@ class jenisKamar extends BaseController
     {
         $data['jenis_kamar'] = $this->jenisModel->findAll();
         foreach ($data['jenis_kamar'] as $key => $value) {
-            $data['jenis_kamar'][$key]['photo'] = $this->photoModel->where('id_jenis_kamar', $value['id'])->findAll();
+            $data['jenis_kamar'][$key]['photo'] = $this->photoModel->asObject()->where('id_jenis_kamar', $value['id'])->findAll();
         }
         return view('jenis/index', $data);
     }

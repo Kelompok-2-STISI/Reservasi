@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Models\jenis;
 
 class PhotoModel extends Model
 {
+    protected $jenisModel;
+
     protected $DBGroup          = 'default';
     protected $table            = 'photo';
     protected $primaryKey       = 'id';
@@ -39,4 +42,14 @@ class PhotoModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function __construct()
+    {
+        $this->jenisModel = new \App\Models\jenis();
+    }
+
+    public function getFoto()
+    {
+        return $this->select('photo.*, photo.id_jenis_kamar, photo.foto')->where('photo.id_jenis_kamar = jenis_kamar.id');
+    }
 }

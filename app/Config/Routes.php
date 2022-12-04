@@ -36,6 +36,8 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/Login', 'Home::masuk');
+$routes->get('/Sign-In', 'Home::daftar');
 
 $routes->group('kamar', function ($routes) {
     $routes->get('', 'Admin\Kamar\setKamar::index');

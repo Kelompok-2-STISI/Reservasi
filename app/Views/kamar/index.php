@@ -40,15 +40,14 @@ selected rounded
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($kamar as $k) : ?>
+                    <?php foreach ($kamar as $key => $k) : ?>
                         <tr>
-                            <td><?= $i++; ?></td>
+                            <td><?= $key + 1; ?></td>
                             <td><?= $k['nama_kamar']; ?></td>
                             <td><?= $k['nomor_kamar']; ?></td>
                             <td>
-                                <a data-toggle="modal" data-target="#exampleModal<?= $i; ?>" class="pop"><?= $k['jenis_kamar']; ?></a>
-                                <div class="modal fade" id="exampleModal<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <a data-toggle="modal" data-target="#exampleModal<?= $key; ?>" class="pop"><?= $k['jenis_kamar']; ?></a>
+                                <div class="modal fade" id="exampleModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -58,7 +57,10 @@ selected rounded
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <?= $k['foto']; ?>
+                                                <label><?= $k['desc']; ?></label>
+                                                <?php foreach ($k['photo'] as $index => $f) : ?>
+                                                    <img class="mb-2" src="<?= base_url() ?>/<?= $f->foto ?>.jpg" alt="" srcset="" width="100%">
+                                                <?php endforeach; ?>
                                             </div>
                                         </div>
                                     </div>
