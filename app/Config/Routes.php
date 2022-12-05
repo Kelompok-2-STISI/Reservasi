@@ -40,10 +40,16 @@ $routes->get('/Login', 'Home::masuk');
 $routes->get('/Sign-In', 'Home::daftar');
 
 $routes->group('kamar', function ($routes) {
+    // index
     $routes->get('', 'Admin\Kamar\setKamar::index');
+    // tambah
     $routes->get('tambah', 'Admin\Kamar\setKamar::tambah');
-    $routes->get('edit', 'Admin\Kamar\setKamar::update');
     $routes->post('save', 'Admin\Kamar\setKamar::save');
+    // hapus
+    $routes->get('hapus-kamar/(:num)', 'Admin\Kamar\setKamar::hapusKamar/$1');
+    // edit
+    $routes->get('edit-kamar/(:segment)', 'Admin\Kamar\setKamar::editKamar/$1');
+    $routes->post('update-kamar/(:segment)', 'Admin\Kamar\setKamar::updateKamar/$1');
 });
 $routes->group('jenis', function ($routes) {
     $routes->get('', 'Admin\Kamar\jenisKamar::index');

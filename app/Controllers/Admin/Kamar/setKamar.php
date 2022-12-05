@@ -19,6 +19,7 @@ class setKamar extends BaseController
         $this->jenisModel = new \App\Models\jenis();
         $this->photoModel = new \App\Models\PhotoModel();
     }
+    // index
     public function index()
     {
         $data = [
@@ -31,6 +32,7 @@ class setKamar extends BaseController
         }
         return view('kamar/index', $data);
     }
+    // tambah
     public function tambah()
     {
         $data['jenisKamar'] = $this->jenisModel->findAll();
@@ -43,10 +45,33 @@ class setKamar extends BaseController
         $this->kamarModel->save($data);
         return redirect()->to(base_url('kamar'));
     }
-    public function del()
+    // edit
+    public function editKamar($id)
     {
+        # code...
+        $data = [
+            'kamar' => $this->kamarModel->find($id),
+            'jenis' => $this->jenisModel->findAll()
+        ];
+        return view('kamar/edit', $data);
     }
-    public function update()
+    public function updateKamar($id)
     {
+        # code...
+        $this->kamarModel->save([
+            'id'  => $id,
+            'nama_kamar' => $this->request->getPost('nama_kamar'),
+            'nomor_kamar' => $this->request->getPost('nomor_kamar'),
+            'id_jenis_kamar' => $this->request->getPost('id_jenis_kamar'),
+            'status' => $this->request->getPost('status'),
+        ]);
+        return redirect()->to(base_url('kamar'));
+    }
+    // hapus
+    public function hapusKamar($id)
+    {
+        # code...
+        $this->kamarModel->delete($id);
+        return redirect()->to(base_url('kamar'));
     }
 }

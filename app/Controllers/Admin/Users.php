@@ -31,6 +31,7 @@ class Users extends BaseController
         return view('user/index', $data);
     }
     // -------------------------------------------------------------------------------------------------
+    // tambah
     public function tambahCustomer()
     {
         $data = [
@@ -52,11 +53,13 @@ class Users extends BaseController
 
         return redirect()->to('/users');
     }
+    // hapus
     public function hapusCustomer($id)
     {
         $this->userModel->delete($id);
         return redirect()->to('/users');
     }
+    // edit
     public function editCustomer($id)
     {
         $data = [

@@ -1,7 +1,3 @@
-<?php
-
-use App\Models\jenis;
-?>
 <?= $this->extend('layout') ?>
 
 <?= $this->section('head') ?>
