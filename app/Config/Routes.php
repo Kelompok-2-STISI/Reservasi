@@ -65,6 +65,9 @@ $routes->group('jenis', function ($routes) {
     $routes->post('update/(:num)', 'Admin\Kamar\jenisKamar::update/$1');
     // hapus
     $routes->get('hapus/(:num)', 'Admin\Kamar\jenisKamar::hapus/$1');
+    // foto
+    $routes->get('foto/(:num)', 'Admin\Kamar\jenisKamar::foto/$1');
+    $routes->post('update-foto/(:num)', 'Admin\Kamar\jenisKamar::updateFoto/$1');
 });
 $routes->group('tarif', function ($routes) {
     $routes->get('', 'Admin\Kamar\tarifKamar::index');

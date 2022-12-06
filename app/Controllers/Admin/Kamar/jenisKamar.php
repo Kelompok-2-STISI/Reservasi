@@ -81,4 +81,24 @@ class jenisKamar extends BaseController
         $this->jenisModel->save($data);
         return redirect()->to('/jenis');
     }
+    // foto
+    public function foto($id)
+    {
+        # code...
+        $data = [
+            'photo' => $this->photoModel->asArray()->where('id_jenis_kamar', $id)->findAll(),
+            'jenis' => $this->jenisModel->find($id)
+        ];
+        return view('jenis/foto', $data);
+    }
+    public function updateFoto($id)
+    {
+        # code...
+        $data = [
+            'id_jenis_kamar' => $id,
+            'foto' => $this->request->getPost('foto')
+        ];
+        $this->photoModel->save($data);
+        return redirect()->to('/jenis');
+    }
 }
