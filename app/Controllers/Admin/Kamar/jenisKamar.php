@@ -9,11 +9,13 @@ use App\Models\PhotoModel;
 class jenisKamar extends BaseController
 {
     protected $jenisModel;
+    protected $photoModel;
     public function __construct()
     {
         $this->jenisModel = new \App\Models\jenis();
         $this->photoModel = new \App\Models\PhotoModel();
     }
+    // index
     public function index()
     {
         $data['jenis_kamar'] = $this->jenisModel->findAll();
@@ -22,26 +24,46 @@ class jenisKamar extends BaseController
         }
         return view('jenis/index', $data);
     }
+    // tambah
     public function tambah()
     {
         return view('jenis/tambah');
     }
     public function save()
     {
-        $this->jenisModel->save([
-            'jenis' => $this->request->getPost('jenis'),
+        $data = [
+            'jenis_kamar' => $this->request->getPost('jenis'),
             'tarif' => $this->request->getPost('tarif'),
             'desc' => $this->request->getPost('desc'),
+        ];
+        $this->jenisModel->save($data);
+        $data_id = [
+            'id' => $this->jenisModel->getInsertID()
+        ];
+        return view('jenis/tambahFoto', $data_id);
+    }
+    // tambah foto
+    public function simpanFoto($id)
+    {
+        # code...
+        $data = [
+            'id_jenis_kamar' => $id,
             'foto' => $this->request->getPost('foto')
-        ]);
-
+        ];
+        $this->photoModel->save($data);
         return redirect()->to('/jenis');
     }
+    // hapus
     public function del()
     {
     }
-    public function update()
+    // edit
+    public function edit($id)
     {
-        return view('jenis/edit');
+        $data = [
+            'jenis' => $this->jenisModel->find($id),
+            'photo' => $this->photoModel->asArray()->where('id_jenis_kamar', $id)->findAll()
+        ];
+        return view('jenis/edit', $data);
     }
 }

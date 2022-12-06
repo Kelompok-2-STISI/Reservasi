@@ -15,5 +15,5 @@ class jenis extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['jenis', 'tarif', 'desc'];
+    protected $allowedFields = ['jenis_kamar', 'tarif', 'desc'];
 }

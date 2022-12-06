@@ -36,13 +36,16 @@ selected rounded
                 </div>
                 <input type="text" name="tarif" class="form-control">
             </div>
-            <div class="form-group">
+            <!-- foto -->
+            <!-- <div class="form-group">
                 <label for="InputTarifKamar">Foto Kamar</label>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile" name="foto">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
-                </div>
-            </div>
+                <form>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" multiple>
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </form>
+            </div> -->
             <div class="form-group">
                 <label>Deskripsi Kamar</label>
                 <textarea class="form-control" rows="3" name="desc" placeholder="Enter ..."></textarea>
@@ -52,5 +55,12 @@ selected rounded
             </div>
         </div>
     </form>
+    <!-- <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script> -->
 </div>
 <?= $this->endSection() ?>

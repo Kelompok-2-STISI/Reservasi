@@ -52,10 +52,16 @@ $routes->group('kamar', function ($routes) {
     $routes->post('update-kamar/(:segment)', 'Admin\Kamar\setKamar::updateKamar/$1');
 });
 $routes->group('jenis', function ($routes) {
+    // index
     $routes->get('', 'Admin\Kamar\jenisKamar::index');
+    // tambah
     $routes->get('tambah', 'Admin\Kamar\jenisKamar::tambah');
-    $routes->get('edit', 'Admin\Kamar\jenisKamar::update');
     $routes->post('save', 'Admin\Kamar\jenisKamar::save');
+    // tambah-foto
+    $routes->get('tambah-foto',  'Admin\Kamar\jenisKamar::tambahFoto');
+    $routes->post('simpan-foto/(:num)',  'Admin\Kamar\jenisKamar::simpanFoto/$1');
+    // edit
+    $routes->get('edit/(:num)', 'Admin\Kamar\jenisKamar::edit/$1');
 });
 $routes->group('tarif', function ($routes) {
     $routes->get('', 'Admin\Kamar\tarifKamar::index');
