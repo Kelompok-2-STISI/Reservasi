@@ -54,16 +54,31 @@ class jenisKamar extends BaseController
         return redirect()->to('/jenis');
     }
     // hapus
-    public function del()
+    public function hapus($id)
     {
+        $data = $this->photoModel->asArray()->where('id_jenis_kamar', $id)->delete();
+        $this->jenisModel->delete($id);
+
+        return redirect()->to('/jenis');
     }
     // edit
     public function edit($id)
     {
         $data = [
             'jenis' => $this->jenisModel->find($id),
-            'photo' => $this->photoModel->asArray()->where('id_jenis_kamar', $id)->findAll()
         ];
         return view('jenis/edit', $data);
+    }
+    public function update($id)
+    {
+        # code...
+        $data = [
+            'id' => $id,
+            'jenis_kamar' => $this->request->getPost('jenis'),
+            'tarif' => $this->request->getPost('tarif'),
+            'desc' => $this->request->getPost('desc')
+        ];
+        $this->jenisModel->save($data);
+        return redirect()->to('/jenis');
     }
 }

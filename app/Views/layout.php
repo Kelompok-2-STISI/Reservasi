@@ -32,6 +32,11 @@
             background: rgb(13, 110, 253);
         }
 
+        .actionIcon {
+            height: 20px;
+            width: auto;
+        }
+
         .actionIcon>svg {
             height: 20px;
             width: auto;

@@ -23,7 +23,7 @@ selected rounded
             <h3>Edit Jenis Kamar</h3>
         </div>
     </div>
-    <form action="<?= base_url('/jenis/save') ?>" method="post">
+    <form action="<?= base_url() ?>/jenis/update/<?= $jenis['id']; ?>" method="post">
         <div class="card-body">
             <div class="form-group">
                 <label for="InputJenisKamar">Jenis Kamar</label>
@@ -35,18 +35,6 @@ selected rounded
                     <span class="input-group-text">Rp.</span>
                 </div>
                 <input type="text" name="tarif" class="form-control" value="<?= $jenis['tarif']; ?>">
-            </div>
-            <div class="form-group">
-                <label for="InputTarifKamar">Foto Kamar</label>
-                <div>
-                    <?php foreach ($photo as $f) : ?>
-                        <img width="20%" class="img-thumbnail" src="<?= base_url() . '/' . $f['foto'] ?>" alt="">
-                    <?php endforeach; ?>
-                </div>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile" name="foto">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
-                </div>
             </div>
             <div class="form-group">
                 <label>Deskripsi Kamar</label>
