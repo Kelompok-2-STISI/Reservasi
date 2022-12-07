@@ -15,19 +15,4 @@ class Home extends BaseController
     {
         return view('home');
     }
-    public function masuk()
-    {
-        return view('login');
-    }
-    // public function daftar()
-    // {
-    //     return view('signup');
-    // }
-    public function daftar()
-    {
-        $data = [
-            'negara' => $this->negaraModel->getNegara()
-        ];
-        return view('signup', $data);
-    }
 }

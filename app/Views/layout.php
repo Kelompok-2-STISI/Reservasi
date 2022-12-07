@@ -71,7 +71,12 @@
                     <a href="http://localhost:8080/" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <?php if (logged_in()) : ?>
+                        <a href="/logout" class="nav-link">Log-Out</a>
+                    <?php else : ?>
+                        <a href="/login" class="nav-link">Log-In</a>
+                    <?php endif; ?>
+
                 </li>
             </ul>
 
@@ -95,7 +100,7 @@
                         <img src="<?= base_url() ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Username</a>
+                        <a href="#" class="d-block"><?= user()->username; ?></a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
@@ -103,37 +108,39 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item <?= $this->renderSection('sideuser') ?>">
-                            <a href="/users" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Users
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item <?= $this->renderSection('menuopen') ?>">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Kamar
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item <?= $this->renderSection('sidesetkamar') ?>">
-                                    <a href="/kamar" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Set Kamar</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item <?= $this->renderSection('sidejeniskamar') ?>">
-                                    <a href="/jenis" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Jenis Kamar</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        <?php if (in_groups('admin')) : ?>
+                            <li class="nav-item <?= $this->renderSection('sideuser') ?>">
+                                <a href="/users" class="nav-link">
+                                    <i class="nav-icon fas fa-table"></i>
+                                    <p>
+                                        Users
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item <?= $this->renderSection('menuopen') ?>">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>
+                                        Kamar
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item <?= $this->renderSection('sidesetkamar') ?>">
+                                        <a href="/kamar" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Set Kamar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item <?= $this->renderSection('sidejeniskamar') ?>">
+                                        <a href="/jenis" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Jenis Kamar</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php endif ?>
                         <li class="nav-item <?= $this->renderSection('sidereservasi') ?>">
                             <a href="/reservasi" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
