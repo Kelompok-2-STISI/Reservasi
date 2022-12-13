@@ -13,59 +13,48 @@ selected rounded
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="card">
+<div class="card card-primary">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <h3>Kamar</h3>
+            <h3>Step-1</h3>
         </div>
     </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Kamar</th>
-                        <th>No. Kamar</th>
-                        <th>Jenis Kamar</th>
-                        <th>Tarif Kamar</th>
-                        <th>Status Kamar</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
+    <div class=" card-body">
+        <form action="/reservasi/step-1-save" method="post">
+            <div class="form-group">
+                <label for="inpNama">Nama Lengkap</label>
+                <input type="text" class="form-control" id="inpNama" placeholder="Nama Anda" name="nama" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="inpNik">NIK</label>
+                <input type="text" class="form-control" id="inpNik" placeholder="NIK" name="nik">
+            </div>
+            <div class="form-group">
+                <label for="inpNoHP">No.Kontak</label>
+                <input type="text" class="form-control" id="inpNoHp" placeholder="+62..." name="no_hp">
+            </div>
+            <div class="form-group">
+                <label for="inpNegara">kewarganegaraan</label>
+                <select class="custom-select rounded-0" id="inpNegara" name="negara">
+                    <option>Piih Negara</option>
+                    <?php foreach ($negara as $n) : ?>
+                        <option value="<?= $n['id_country'] ?>"><?= $n['country_name'] ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Pilih Kamar</label>
+                <select class="custom-select rounded-0" id="inpKamar" name="kamar">
+                    <option>Kamar yang tersedia</option>
                     <?php foreach ($kamar as $k) : ?>
-                        <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= $k['nama_kamar']; ?></td>
-                            <td><?= $k['nomor_kamar']; ?></td>
-                            <td>
-                                <a data-toggle="modal" data-target="#exampleModal<?= $i; ?>" class="pop"><?= $k['jenis_kamar']; ?></a>
-                                <div class="modal fade" id="exampleModal<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Kamar <?= $k['jenis_kamar']; ?></h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                ...
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><?= $k['tarif']; ?></td>
-                            <td><?= $k['status']; ?></td>
-                            <td></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+                        <option value="<?= $k['id'] ?>"><?= $k['nama_kamar'] ?>-<?= $k['nomor_kamar'] ?>-<?= $k['jenis_kamar'] ?>-Rp. <?= $k['tarif'] ?>/Malam</option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+            <div class="form-check">
+                <button type="submit" class="btn btn-primary">Next</button>
+            </div>
+        </form>
     </div>
 </div>
 <?= $this->endSection() ?>

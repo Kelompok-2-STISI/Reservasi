@@ -74,7 +74,8 @@
                     <?php if (logged_in()) : ?>
                         <a href="/logout" class="nav-link">Log-Out</a>
                     <?php else : ?>
-                        <a href="/login" class="nav-link">Log-In</a>
+                        <a href="/log
+                        in" class="nav-link">Log-In</a>
                     <?php endif; ?>
 
                 </li>

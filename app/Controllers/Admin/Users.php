@@ -6,21 +6,22 @@ use App\Controllers\BaseController;
 use App\Models\user;
 use App\Models\Admin;
 use App\Models\Negara;
+use CodeIgniter\Database\MySQLi\Builder;
 
 class Users extends BaseController
 {
-    // Deklarasi variabel untuk model
-    protected $userModel;
-    protected $adminModel;
-    protected $negaraModel;
-    // konstruktor
-    public function __construct()
-    {
-        $this->userModel = new \App\Models\user();
-        $this->adminModel = new \App\Models\Admin();
-        $this->negaraModel = new \App\Models\Negara();
-    }
-    // controller untuk view utama menu user
+    // // Deklarasi variabel untuk model
+    // protected $userModel;
+    // protected $adminModel;
+    // protected $negaraModel;
+    // // konstruktor
+    // public function __construct()
+    // {
+    //     $this->userModel = new \App\Models\user();
+    //     $this->adminModel = new \App\Models\Admin();
+    //     $this->negaraModel = new \App\Models\Negara();
+    // }
+    // // controller untuk view utama menu user
     public function index()
     {
         $db = \Config\Database::connect();
@@ -33,11 +34,28 @@ class Users extends BaseController
         $data = [
             'users' => $query->getResult()
         ];
-        // dd($data);
         return view('user/index', $data);
     }
     // -------------------------------------------------------------------------------------------------
     // tambah
+    // public function tambah()
+    // {
+    //     return view('user/tambah');
+    // }
+
+    // public function save()
+    // {
+    //     $user = new \Myth\Auth\Models\UserModel();
+
+    //     $data = [
+    //         'username' => $this->request->getPost('uname'),
+    //         'email' => $this->request->getPost('email'),
+    //         'password_hash' => md5($this->request->getPost('password')),
+    //     ];
+    //     $user->save($data);
+
+    //     return redirect()->to('/users');
+    // }
     // public function tambahCustomer()
     // {
     //     $data = [

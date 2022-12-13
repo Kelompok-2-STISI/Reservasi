@@ -36,8 +36,6 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/Login', 'Home::masuk');
-$routes->get('/Sign-In', 'Home::daftar');
 
 $routes->group('kamar', function ($routes) {
     // index
@@ -75,22 +73,22 @@ $routes->group('tarif', function ($routes) {
     $routes->get('edit', 'Admin\Kamar\tarifKamar::update');
 });
 $routes->group('reservasi', function ($routes) {
+    // step 1 isi data diri
     $routes->get('', 'Admin\Reservasi::index');
+    $routes->post('step-1-save', 'Admin\Reservasi::step1_save');
+    // step 2 pilih kamar
+    $routes->get('step-2/(:any)/(:any)', 'Admin\Reservasi::step2/$1/$2');
+    // step 3 detail reservasi
+    $routes->post('step-3', 'Admin\Reservasi::step3');
 });
 $routes->group('users', function ($routes) {
     $routes->get('', 'Admin\Users::index');
 
-    $routes->get('tambah-customer', 'Admin\Users::tambahCustomer');
-    $routes->post('save-customer', 'Admin\Users::saveCustomer');
-    $routes->get('hapus-customer/(:num)', 'Admin\Users::hapusCustomer/$1');
-    $routes->get('edit-customer/(:segment)', 'Admin\Users::editCustomer/$1');
-    $routes->post('update-customer/(:segment)', 'Admin\Users::updateCustomer/$1');
-
-    $routes->get('tambah-admin', 'Admin\Users::tambahAdmin');
-    $routes->post('save-admin', 'Admin\Users::saveAdmin');
-    $routes->get('hapus-admin/(:num)', 'Admin\Users::hapusAdmin/$1');
-    $routes->get('edit-admin/(:segment)', 'Admin\Users::editAdmin/$1');
-    $routes->post('update-admin/(:segment)', 'Admin\Users::updateAdmin/$1');
+    $routes->get('tambah', 'Admin\Users::tambah');
+    $routes->post('save', 'Admin\Users::save');
+    $routes->get('hapus/(:any)', 'Admin\Users::hapus/$1');
+    $routes->get('edit/(:any)', 'Admin\Users::edit/$1');
+    $routes->post('update/(:any)', 'Admin\Users::update/$1');
 });
 
 /*

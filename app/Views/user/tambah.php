@@ -16,16 +16,12 @@ selected rounded
 <div class="card card-primary">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <h3>Tambah Admin</h3>
+            <h3>Tambah Users</h3>
         </div>
     </div>
-    <form action="<?= base_url('users/save-admin') ?>" method="post">
+    <form action="<?= base_url('users/save/') ?>" method="post">
         <?= csrf_field(); ?>
         <div class="card-body">
-            <div class="form-group">
-                <label for="nama">Nama Lengkap</label>
-                <input type="text" name="nama" class="form-control" id="nama" placeholder="Nama Lengkap" autofocus>
-            </div>
             <div class="form-group">
                 <label for="uname">Username</label>
                 <input type="text" name="uname" class="form-control" id="uname" placeholder="Username">
@@ -35,8 +31,12 @@ selected rounded
                 <input type="email" name="email" class="form-control" id="email" placeholder="E-Mail">
             </div>
             <div class="form-group">
-                <label for="noHp">No.Hp</label>
-                <input type="tel" name="noHp" class="form-control" id="noHp" placeholder="No.Hp">
+                <label for="role">Role</label>
+                <select name="role" class="form-control">
+                    <option>Pilih Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="guest">Guest</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
