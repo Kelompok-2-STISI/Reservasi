@@ -24,17 +24,14 @@ DROP TABLE IF EXISTS `customer`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customer` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nama` varchar(30) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `nik` varchar(20) NOT NULL,
+  `nama` varchar(45) NOT NULL,
+  `no_hp` varchar(45) NOT NULL,
+  `nik` int NOT NULL,
   `id_negara` int NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `no_hp` varchar(13) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_negara` (`id_negara`),
-  CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`id_negara`) REFERENCES `negara` (`id_country`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `key1_idx` (`id_negara`),
+  CONSTRAINT `key1` FOREIGN KEY (`id_negara`) REFERENCES `negara` (`id_country`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +40,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (6,'Indra Rajsya','indr4','password','54452452525',103,'rajsyaIndr4@gmail.com','08384181001'),(10,'Avif Setyawan','avif69','qwerty','1234567890',103,'Setyawan69@gmail.com','0987654321');
+INSERT INTO `customer` VALUES (12,'Avif Setyawan','6543',1234567890,103),(13,'Meylisa Kurdita','6543098765432',1234567890,103),(14,'Adhindha Alifya','12345678',1234567890,75),(15,'Adhindha Alifya','12345678',1234567890,75);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-21 16:24:34
+-- Dump completed on 2022-12-12 17:49:10

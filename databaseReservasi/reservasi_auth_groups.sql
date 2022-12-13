@@ -16,30 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `photo`
+-- Table structure for table `auth_groups`
 --
 
-DROP TABLE IF EXISTS `photo`;
+DROP TABLE IF EXISTS `auth_groups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `photo` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_jenis_kamar` int NOT NULL,
-  `foto` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_jenis_kamar` (`id_jenis_kamar`),
-  CONSTRAINT `photo_ibfk_1` FOREIGN KEY (`id_jenis_kamar`) REFERENCES `jenis_kamar` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `auth_groups` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `photo`
+-- Dumping data for table `auth_groups`
 --
 
-LOCK TABLES `photo` WRITE;
-/*!40000 ALTER TABLE `photo` DISABLE KEYS */;
-INSERT INTO `photo` VALUES (1,1,'photo1.jpg'),(2,2,'photo2.jpg'),(3,1,'photo3.jpg'),(6,1,'Screenshot (1).png');
-/*!40000 ALTER TABLE `photo` ENABLE KEYS */;
+LOCK TABLES `auth_groups` WRITE;
+/*!40000 ALTER TABLE `auth_groups` DISABLE KEYS */;
+INSERT INTO `auth_groups` VALUES (1,'guest','reservasi only'),(2,'admin','full acces');
+/*!40000 ALTER TABLE `auth_groups` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

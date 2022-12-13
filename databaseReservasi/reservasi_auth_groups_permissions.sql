@@ -16,30 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `photo`
+-- Table structure for table `auth_groups_permissions`
 --
 
-DROP TABLE IF EXISTS `photo`;
+DROP TABLE IF EXISTS `auth_groups_permissions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `photo` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_jenis_kamar` int NOT NULL,
-  `foto` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_jenis_kamar` (`id_jenis_kamar`),
-  CONSTRAINT `photo_ibfk_1` FOREIGN KEY (`id_jenis_kamar`) REFERENCES `jenis_kamar` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `auth_groups_permissions` (
+  `group_id` int unsigned NOT NULL DEFAULT '0',
+  `permission_id` int unsigned NOT NULL DEFAULT '0',
+  KEY `auth_groups_permissions_permission_id_foreign` (`permission_id`),
+  KEY `group_id_permission_id` (`group_id`,`permission_id`),
+  CONSTRAINT `auth_groups_permissions_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `auth_groups` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `auth_groups_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `photo`
+-- Dumping data for table `auth_groups_permissions`
 --
 
-LOCK TABLES `photo` WRITE;
-/*!40000 ALTER TABLE `photo` DISABLE KEYS */;
-INSERT INTO `photo` VALUES (1,1,'photo1.jpg'),(2,2,'photo2.jpg'),(3,1,'photo3.jpg'),(6,1,'Screenshot (1).png');
-/*!40000 ALTER TABLE `photo` ENABLE KEYS */;
+LOCK TABLES `auth_groups_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_groups_permissions` DISABLE KEYS */;
+INSERT INTO `auth_groups_permissions` VALUES (1,4),(2,1),(2,2),(2,3),(2,4);
+/*!40000 ALTER TABLE `auth_groups_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-12 17:49:09
+-- Dump completed on 2022-12-12 17:49:04

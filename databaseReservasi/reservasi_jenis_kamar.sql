@@ -28,7 +28,7 @@ CREATE TABLE `jenis_kamar` (
   `tarif` varchar(100) NOT NULL,
   `desc` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `jenis_kamar` (
 
 LOCK TABLES `jenis_kamar` WRITE;
 /*!40000 ALTER TABLE `jenis_kamar` DISABLE KEYS */;
-INSERT INTO `jenis_kamar` VALUES (1,'VIP','800.000','ini kamar Reguler'),(2,'Reguler','400.000','ini kamar VIP');
+INSERT INTO `jenis_kamar` VALUES (1,'VIP','800.000','ini kamar VIP'),(2,'Reguler','400.000','ini kamar Reguler');
 /*!40000 ALTER TABLE `jenis_kamar` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-21 16:24:38
+-- Dump completed on 2022-12-12 17:49:08

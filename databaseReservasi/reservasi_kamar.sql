@@ -31,7 +31,7 @@ CREATE TABLE `kamar` (
   PRIMARY KEY (`id`),
   KEY `id_jenis_kamar` (`id_jenis_kamar`),
   CONSTRAINT `kamar_ibfk_1` FOREIGN KEY (`id_jenis_kamar`) REFERENCES `jenis_kamar` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `kamar` (
 
 LOCK TABLES `kamar` WRITE;
 /*!40000 ALTER TABLE `kamar` DISABLE KEYS */;
-INSERT INTO `kamar` VALUES (3,'kamar1','A1',2,'none'),(4,'kamar2','A2',1,'aktif'),(5,'kamar3','A3',1,'aktif');
+INSERT INTO `kamar` VALUES (3,'kamar1','A1',2,'aktif'),(4,'kamar2','A2',1,'aktif'),(5,'kamar3','A3',2,'none'),(6,'kamar4','A4',1,'none'),(7,'kamar5','A5',2,'none');
 /*!40000 ALTER TABLE `kamar` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-21 16:24:32
+-- Dump completed on 2022-12-12 17:49:12
