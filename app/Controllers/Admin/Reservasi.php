@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\kamar;
 use CodeIgniter\I18n\Time;
 
 class Reservasi extends BaseController
@@ -13,6 +14,7 @@ class Reservasi extends BaseController
     protected $customerModel;
     protected $photoModel;
     protected $bookingModel;
+    protected $cek;
 
     public function __construct()
     {
@@ -22,26 +24,22 @@ class Reservasi extends BaseController
         $this->customerModel = new \App\Models\customer();
         $this->photoModel = new \App\Models\PhotoModel();
         $this->bookingModel = new \App\Models\booking();
+        $this->cek = new \App\Controllers\Home;
     }
+    // step 1
     public function index()
     {
+        $this->cek->check_kamar();
         $data = [
             'negara' => $this->negaraModel->findAll(),
-            'kamar' => $this->kamarModel->select('kamar.*, jenis_kamar.jenis_kamar, jenis_kamar.tarif, jenis_kamar.desc, jenis_kamar.id AS id_jenis_kamar')
-                ->join('jenis_kamar', 'kamar.id_jenis_kamar=jenis_kamar.id', 'LEFT')
-                ->where('status', 'none')
-                ->findAll(),
             'jenis' => $this->jenisModel->findAll()
         ];
-        foreach ($data['jenis'] as $key => $j) {
-            $data['jenis'][$key]['photo'] = $this->photoModel->asObject()->where('id_jenis_kamar', $j['id'])->findAll();
-        }
         // dd($data);
         return view('reservasi/index', $data);
     }
-    // step 1
     public function step1_save()
     {
+        $id_jk = $this->request->getPost('kamar');
         $customer = [
             'nama' => $this->request->getPost('nama'),
             'nik' => $this->request->getPost('nik'),
@@ -49,32 +47,54 @@ class Reservasi extends BaseController
             'id_negara' => $this->request->getPost('negara')
         ];
         $this->customerModel->save($customer);
-        $id_c = $this->customerModel->getInsertID();
-        $id_k = $this->request->getPost('kamar');
-        // dd($pass);
-        return redirect('/reservasi/step-2/' . $id_c . '/' . $id_k);
+        $id_cs = $this->customerModel->getInsertID();
+
+        $data = [
+            'customer' => $this->customerModel->find($id_cs),
+            'kamar' => $this->kamarModel->where('id_jenis_kamar', $id_jk)->where('status', 'kosong')->first(),
+            'tanggal' => Time::today('Asia/Jayapura')
+        ];
+        // dd($data);
+        return view('reservasi/step2', $data);
     }
     // step 2
-    public function step2($id_c, $id_k)
+    public function step2_save()
     {
-        $data = [
-            'id_c' => $id_c,
-            '$id_k' => $id_k
+        $save = [
+            'id_customer' => $this->request->getPost('customer'),
+            'id_user' => $this->request->getPost('user'),
+            'id_kamar' => $this->request->getPost('kamar'),
+            'check-in' => $this->request->getPost('in'),
+            'check-out' => $this->request->getPost('out')
         ];
-        dd($data);
-        // return view('reservasi/step2', $data);
+        $this->bookingModel->save($save);
+        $id_bo = $this->bookingModel->getInsertID();
+
+        $data = [
+            'bo' => $this->bookingModel->select('booking.*, booking.id AS id_bo, customer.*, kamar.*, jenis_kamar.*')
+                ->join('customer', 'customer.id = booking.id_customer')
+                ->join('kamar', 'kamar.id = booking.id_kamar')
+                ->join('jenis_kamar', 'jenis_kamar.id = kamar.id_jenis_kamar')
+                ->find($id_bo)
+        ];
+        // dd(
+        //     $data
+        // );
+        return view('reservasi/step3', $data);
     }
     // step  3
-    public function step3()
+    public function step3_save()
     {
-        $id_kamar = $this->request->getPost('id_kamar');
-        $id_customer = $this->customerModel->getInsertID();
-        # Detail Reservasi
+        $id = $this->request->getPost('id_km');
         $data = [
-            'kamar' => $this->kamarModel->find($id_kamar),
-            'customer' => $id_customer
+            'id' => $id,
+            'nama_kamar' => $this->request->getPost('nm_km'),
+            'nomor_kamar' => $this->request->getPost('no_km'),
+            'id_jenis_kamar' => $this->request->getPost('id_jk'),
+            'status' => 'penuh'
         ];
-        dd($data);
-        // return view('/reservasi/step3');
+        $this->kamarModel->save($data);
+        return redirect()->to('/reservasi');
     }
 }
+// , customer.nama, customer.id AS id_cs, kamar.id AS id_km, kamar.nomor_kamar, kamar.id_jenis_kamar, kamar.status

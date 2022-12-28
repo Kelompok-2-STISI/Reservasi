@@ -77,9 +77,9 @@ $routes->group('reservasi', function ($routes) {
     $routes->get('', 'Admin\Reservasi::index');
     $routes->post('step-1-save', 'Admin\Reservasi::step1_save');
     // step 2 pilih kamar
-    $routes->get('step-2/(:any)/(:any)', 'Admin\Reservasi::step2/$1/$2');
+    $routes->post('step-2-save', 'Admin\Reservasi::step2_save');
     // step 3 detail reservasi
-    $routes->post('step-3', 'Admin\Reservasi::step3');
+    $routes->post('step-3-save', 'Admin\Reservasi::step3_save');
 });
 $routes->group('users', function ($routes) {
     $routes->get('', 'Admin\Users::index');

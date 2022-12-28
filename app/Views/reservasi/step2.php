@@ -20,22 +20,36 @@ selected rounded
         </div>
     </div>
     <div class=" card-body">
-        <form action="/reservasi/step-2-save" method="post">
+        <form action="<?= base_url('/reservasi/step-2-save') ?>" method="post">
             <div class="form-group">
-                <label for="inpNama">Nama Lengkap</label>
-                <input type="datetime" class="form-control" id="inpIn" placeholder="Nama Anda" name="in" autofocus>
+                <label>nama</label>
+                <input type="text" disabled class="form-control" id="exampleInputCS" value="<?= $customer['nama'] ?>">
             </div>
             <div class="form-group">
-                <label for="inpNik">NIK</label>
-                <input type="text" class="form-control" id="inpOut" placeholder="NIK" name="out">
+                <label>nomor kamar</label>
+                <input type="text" disabled class="form-control" id="exampleInputKM" value="<?= $kamar['nomor_kamar'] ?>">
             </div>
             <div class="form-group">
-                <label for="inpNoHP">No.Kontak</label>
-                <input type="text" class="form-control" id="inpNoHp" placeholder="+62..." name="no_hp">
+                <label>Check-In:</label>
+                <div class="input-group date" id="in">
+                    <input type="date" class="form-control" name="in">
+                </div>
+                <label>Check-Out:</label>
+                <div class="input-group date" id="out">
+                    <input type="date" class="form-control" name="out">
+                </div>
             </div>
-
+            <div class="form-group">
+                <input type="hidden" value="<?= $customer['id'] ?>" name="customer">
+                <input type="hidden" value="<?= $kamar['id'] ?>" name="kamar">
+                <input type="hidden" value="<?= user_id() ?>" name="user">
+            </div>
+            <div class="form-check">
+                <button type="submit" class="btn btn-primary">Next</button>
+            </div>
         </form>
     </div>
+</div>
 </div>
 <?= $this->endSection() ?>
 

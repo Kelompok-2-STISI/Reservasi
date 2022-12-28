@@ -12,16 +12,20 @@ class setKamar extends BaseController
     protected $kamarModel;
     protected $jenisModel;
     protected $photoModel;
+    protected $cek;
 
     public function __construct()
     {
         $this->kamarModel = new \App\Models\kamar();
         $this->jenisModel = new \App\Models\jenis();
         $this->photoModel = new \App\Models\PhotoModel();
+        $this->cek = new \App\Controllers\Home;
     }
     // index
     public function index()
     {
+        $this->cek->check_kamar();
+
         $data = [
             'kamar' => $this->kamarModel->select('kamar.*, jenis_kamar.jenis_kamar, jenis_kamar.tarif, jenis_kamar.desc, jenis_kamar.id AS id_jenis_kamar')
                 ->join('jenis_kamar', 'kamar.id_jenis_kamar=jenis_kamar.id', 'LEFT')

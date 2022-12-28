@@ -43,11 +43,11 @@ selected rounded
                 </select>
             </div>
             <div class="form-group">
-                <label>Pilih Kamar</label>
+                <label for="inpKamar">jenis kamar</label>
                 <select class="custom-select rounded-0" id="inpKamar" name="kamar">
-                    <option>Kamar yang tersedia</option>
-                    <?php foreach ($kamar as $k) : ?>
-                        <option value="<?= $k['id'] ?>"><?= $k['nama_kamar'] ?>-<?= $k['nomor_kamar'] ?>-<?= $k['jenis_kamar'] ?>-Rp. <?= $k['tarif'] ?>/Malam</option>
+                    <option>Piih Jenis Kamar</option>
+                    <?php foreach ($jenis as $j) : ?>
+                        <option value="<?= $j['id'] ?>"><?= $j['jenis_kamar'] ?></option>
                     <?php endforeach ?>
                 </select>
             </div>

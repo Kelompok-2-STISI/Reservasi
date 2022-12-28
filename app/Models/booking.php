@@ -14,7 +14,7 @@ class booking extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id_user', 'id_kamar', 'id_customer', 'check-in', 'check-out', 'status'];
+    protected $allowedFields = ['id_user', 'id_kamar', 'id_customer', 'check-in', 'check-out'];
 
     public function getBook()
     {

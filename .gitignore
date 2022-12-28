@@ -83,7 +83,22 @@ phpunit
 #-------------------------
 # Composer
 #-------------------------
-vendor/
+vendor/bin
+vendor/codeigniter4
+vendor/composer
+vendor/doctrine
+vendor/fakerphp
+vendor/kint-php
+vendor/laminas
+vendor/mikey179
+vendor/myclabs
+vendor/nikic
+vendor/phar-io
+vendor/psr
+vendor/sebastian
+vendor/symfony
+vendor/theseer
+vendor/autoload.php
 
 #-------------------------
 # IDE / Development Files
