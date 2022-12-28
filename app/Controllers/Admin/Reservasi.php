@@ -96,5 +96,15 @@ class Reservasi extends BaseController
         $this->kamarModel->save($data);
         return redirect()->to('/reservasi');
     }
+    public function batal()
+    {
+        $id_cs = $this->request->getPost('id_cs');
+        $id_bo = $this->request->getPost('id_bo');
+
+        $this->bookingModel->delete($id_bo);
+        $this->bookingModel->delete($id_cs);
+
+        return redirect()->to('/reservasi');
+    }
 }
 // , customer.nama, customer.id AS id_cs, kamar.id AS id_km, kamar.nomor_kamar, kamar.id_jenis_kamar, kamar.status

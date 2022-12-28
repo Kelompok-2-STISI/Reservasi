@@ -80,6 +80,7 @@ $routes->group('reservasi', function ($routes) {
     $routes->post('step-2-save', 'Admin\Reservasi::step2_save');
     // step 3 detail reservasi
     $routes->post('step-3-save', 'Admin\Reservasi::step3_save');
+    $routes->post('batal', 'Admin\Reservasi::batal');
 });
 $routes->group('users', function ($routes) {
     $routes->get('', 'Admin\Users::index');
