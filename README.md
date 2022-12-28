@@ -7,6 +7,7 @@ setelah selesai aplikasi bisa langsung digunakan
 
 untuk login sebagai admin bisa menggunakan
 username = fadil
+
 password = gpassword1
 
 untuk login sebagai customer bisa langsung saja membuat akun user baru.
