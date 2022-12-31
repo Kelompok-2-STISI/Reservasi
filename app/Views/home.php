@@ -57,5 +57,16 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-
+<?php foreach ($jenis_kamar as $j) : ?>
+    <div class="container con my-2">
+        <div class="card cus" style="width: 18rem;">
+            <div class="card-body cb">
+                <h2 class="card-title font-weight-bold"><?= $j['jenis_kamar'] ?></h2>
+                <p class="card-text"><?= $j['desc'] ?></p>
+                <a href="/reservasi" class="btn btn-primary">Mulai</a>
+            </div>
+        </div>
+        <img src="<?= base_url() . "/" . $j['photo'][0]->foto ?>" class="img-fluid" alt="...">
+    </div>
+<?php endforeach ?>
 <?= $this->endSection() ?>
