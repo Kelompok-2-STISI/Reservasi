@@ -21,7 +21,7 @@ class Home extends BaseController
         $bo = $this->bookingModel->findAll();
 
         foreach ($bo as $i) {
-            if ($i['check-out'] . Time::tomorrow($timeZone) == $now) {
+            if ($now->isAfter($i['check-out'])) {
                 $km = $this->kamarModel->find($i['id_kamar']);
                 $data = [
                     'id' => $i['id_kamar'],

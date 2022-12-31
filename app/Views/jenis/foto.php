@@ -25,16 +25,28 @@ selected rounded
     </div>
     <form action="/jenis/update-foto/<?= $jenis['id'] ?>" method="post">
         <div class="card-body">
-            <?php foreach ($photo as $key => $p) : ?>
-                <img width="30%" src="<?= base_url() . '/' . $p['foto'] ?>" alt="..." class="img-thumbnail">
-            <?php endforeach ?>
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="customFile" name="foto">
                 <label class="custom-file-label" for="customFile">Choose file</label>
             </div>
-        </div>
-        <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-check m-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <ul class="list-group list-group-flush">
+                <?php foreach ($photo as $key => $p) : ?>
+                    <li class="list-group-item">
+                        <img width="30%" src="<?= base_url() . '/' . $p['foto'] ?>" alt="..." class="img-thumbnail">
+                    </li>
+                    <li class="list-group-item">
+                        <form action="/jenis/hapus-foto" method="post">
+                            <input type="hidden" name="id_foto" value="<?= $p['id'] ?>">
+                            <button type="submit" class="btn btn-danger del">
+                                Hapus ^
+                            </button>
+                        </form>
+                    </li>
+                <?php endforeach ?>
+            </ul>
         </div>
     </form>
 </div>

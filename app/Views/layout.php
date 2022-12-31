@@ -54,6 +54,11 @@
         .hidden {
             display: none;
         }
+
+        .del {
+            display: inline;
+            float: left;
+        }
     </style>
 </head>
 
@@ -140,6 +145,14 @@
                                         </a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li class="nav-item <?= $this->renderSection('sidebook') ?>">
+                                <a href="/booking" class="nav-link">
+                                    <i class="nav-icon fas fa-table"></i>
+                                    <p>
+                                        Daftar Reservasi
+                                    </p>
+                                </a>
                             </li>
                         <?php endif ?>
                         <li class="nav-item <?= $this->renderSection('sidereservasi') ?>">

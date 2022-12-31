@@ -101,4 +101,10 @@ class jenisKamar extends BaseController
         $this->photoModel->save($data);
         return redirect()->to('/jenis');
     }
+    public function hapusFoto()
+    {
+        $id = $this->request->getPost('id_foto');
+        $this->photoModel->delete($id);
+        return redirect()->to('/jenis');
+    }
 }

@@ -66,6 +66,7 @@ $routes->group('jenis', function ($routes) {
     // foto
     $routes->get('foto/(:num)', 'Admin\Kamar\jenisKamar::foto/$1');
     $routes->post('update-foto/(:num)', 'Admin\Kamar\jenisKamar::updateFoto/$1');
+    $routes->post('hapus-foto', 'Admin\Kamar\jenisKamar::hapusFoto');
 });
 $routes->group('tarif', function ($routes) {
     $routes->get('', 'Admin\Kamar\tarifKamar::index');
@@ -81,6 +82,9 @@ $routes->group('reservasi', function ($routes) {
     // step 3 detail reservasi
     $routes->post('step-3-save', 'Admin\Reservasi::step3_save');
     $routes->post('batal', 'Admin\Reservasi::batal');
+});
+$routes->group('booking', function ($routes) {
+    $routes->get('', 'Admin\booking::index');
 });
 $routes->group('users', function ($routes) {
     $routes->get('', 'Admin\Users::index');

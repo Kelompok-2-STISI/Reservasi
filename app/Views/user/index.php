@@ -21,7 +21,7 @@ selected rounded
         </div>
         <div>
             <!-- Search form -->
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            <!-- <input class="form-control" type="text" placeholder="Search" aria-label="Search"> -->
         </div>
     </div>
     <div class="card-body">
