@@ -20,7 +20,7 @@ selected rounded
 <div class="card card-primary">
     <div class="card-header">
         <div class="d-flex justify-content-between">
-            <h3>Tambah Kamar</h3>
+            <h3>Edit Kamar</h3>
         </div>
     </div>
     <form action="<?= base_url() ?>/kamar/update-kamar/<?= $kamar['id']; ?>" method="post">

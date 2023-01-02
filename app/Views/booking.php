@@ -14,10 +14,10 @@ selected rounded
 
 <?= $this->section('content') ?>
 <div class="card">
-    <div class="card-header">
+    <div class="card-header bg-primary">
         <div class="d-flex justify-content-between">
-            <h3>Booking</h3>
-            <a href="<?= base_url('reservasi') ?>" class="btn btn-info">Tambah</a>
+            <h3>Detail Reservasi Customer</h3>
+            <a href="<?= base_url('reservasi') ?>" class="btn btn-warning">Tambah</a>
         </div>
         <div>
             <!-- Search form -->
